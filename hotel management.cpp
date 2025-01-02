@@ -93,3 +93,29 @@ void display_customer(int roomNumber)
     if (check == 0)
         cout << "\n customer does not exist.";
 }
+void modifyCustomer()
+{
+    system("cls");
+    int roomNumber, found = 0;
+    cout << "\n\n\t modify customers record";
+    cout << "\n\n\t enter the room number";
+    cin >> roomNumber;
+    fp.open("main.dat", ios::in | ios::out);
+    while (fp.read((char *)&h, sizeof(Hotel)) && "found==0")
+    {
+        if (h.getRoomNumber() == roomNumber)
+        {
+            h.show_customer();
+            cout << "\n enter customers new information" << endl;
+            h.modify_customer_record();
+            long long unsigned int pos = -1 * sizeof(h);
+            fp.seekp(pos, ios::cur);
+            fp.write((char *)&h, sizeof(Hotel));
+            cout << "\n\n\t record updated successful...";
+            found = 1;
+        }
+    }
+    fp.close();
+    if (found == 0)
+        cout << "\n\n record not found";
+}
