@@ -31,3 +31,16 @@ void show_customer()
         cout << "\n customers address= " << address;
         cout << "\n customers mobile number" << mobile_number;
     }
+ void modify_customer_record()
+    {
+        cout << "\n room number= " << room_number;
+        cout << "\n modify customers name=";
+        cin.ignore();
+        cin.getline(name, 30);
+        cout << "\n modify customers address=";
+        cin.ignore();
+        cin.getline(address, 50);
+        cout << "\n modify customers mobile number=";
+        cin.ignore();
+        cin.getline(mobile_number, 15);
+    }
