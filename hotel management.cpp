@@ -65,3 +65,31 @@ void show_customer()
         cout << room_number << setw(10) << name << setw(20) << address << setw(20) << mobile_number << setw << endl;
     }
 };
+fstream fp;
+Hotel h;
+void save_customer()
+{
+    system("cls");
+    fp.open("main.dat", ios::out | ios::app);
+    h.add_customer();
+    fp.write((char *)&h, sizeof(Hotel));
+    fp.close();
+}
+void display_customer(int roomNumber)
+{
+    system("cls");
+    cout << "\n customer details\n";
+    int check = 0;
+    fp.open("main.dat", ios::in);
+    while (fp.read((char *)&h, sizeof(Hotel)))
+    {
+        if (h.getRoomNumber() == roomNumber)
+        {
+            h.show_customer();
+            check = 1;
+        }
+    }
+    fp.close();
+    if (check == 0)
+        cout << "\n customer does not exist.";
+}
