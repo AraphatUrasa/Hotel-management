@@ -24,3 +24,10 @@ public:
         cin.getline(mobile_number, 15);
         cout << "\n mobile_number" << endl;
     }
+void show_customer()
+    {
+        cout << "\n room_number= " << room_number;
+        cout << "\n customers name= " << name;
+        cout << "\n customers address= " << address;
+        cout << "\n customers mobile number" << mobile_number;
+    }
