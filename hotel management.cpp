@@ -119,3 +119,35 @@ void modifyCustomer()
     if (found == 0)
         cout << "\n\n record not found";
 }
+void delete_customer()
+{
+    system("cls");
+    char roomNumber;
+    int flag = 0;
+    cout << "\n\n\n\t delete customer";
+    cout << "\n\n enter the room of the customer you want to delete=";
+    cin >> roomNumber;
+    fp.open("main.dat", ios::in | ios::out);
+    fstream fp2;
+    fp2.open("Temp.dat", ios::out);
+    fp.seekg(0, ios::beg);
+    while (fp.read((char *)&h, sizeof(Hotel)))
+    {
+        if (h.getRoomNumber() == roomNumber)
+        {
+            fp2.write((char *)&h, sizeof(Hotel));
+        }
+        else
+            flag = 1;
+    }
+    fp2.close();
+    fp.close();
+    remove("main.dat");
+    rename("temp.dat", "main.dat");
+    if (flag == 1)
+    {
+        cout << "\n\n record deleted...";
+    }
+    else
+        cout << "\n\n record not found..";
+}
