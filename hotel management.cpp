@@ -151,3 +151,46 @@ void delete_customer()
     else
         cout << "\n\n record not found..";
 }
+int main()
+{
+    int ch;
+    for (;;)
+    {
+        cout << "\n\n ......................";
+        cout << "\n\t\t press 1 to book a room";
+        cout << "\n\t\t press 2 to view customers record";
+        cout << "\n\t\t press 3 to modify customers record";
+        cout << "\n\t\t press 4 to delete customers record";
+        cout << "\n\t\t press 5 to exit";
+        cout << "\n\t\t............";
+        cout << "\n enter your choice= ";
+        cin >> ch;
+        switch (ch)
+        {
+        case 1:
+            save_customer();
+            system("cls");
+            break;
+        case 2:
+            int RoomNumber;
+            system("cls");
+            cout << "\n\n\t please enter customers room number";
+            cin >> RoomNumber;
+            display_customer(RoomNumber);
+            break;
+        case 3:
+            modifyCustomer();
+            system("cls");
+            break;
+        case 4:
+            delete_customer();
+            system("cls");
+            break;
+        case 5:
+            exit(0);
+        default:
+            cout << "\n\n enter the correct choice: ";
+        }
+    }
+    return 0;
+}
