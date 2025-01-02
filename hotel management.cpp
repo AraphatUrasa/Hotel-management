@@ -44,3 +44,24 @@ void show_customer()
         cin.ignore();
         cin.getline(mobile_number, 15);
     }
+ int getRoomNumber()
+    {
+        return room_number;
+    }
+    char *getName()
+    {
+        return name;
+    }
+    char *getAddress()
+    {
+        return address;
+    }
+    char *getMobileNumber()
+    {
+        return mobile_number;
+    }
+    void report()
+    {
+        cout << room_number << setw(10) << name << setw(20) << address << setw(20) << mobile_number << setw << endl;
+    }
+};
